@@ -25,32 +25,22 @@ function AddFoodForm({ onAddFood }) {
     setData(initialData);
   };
 
+  const onChange = (event) => {
+    setData({ ...data, [event.target.name]: event.target.value });
+  };
+
   return (
     <form onSubmit={onSubmit}>
       {JSON.stringify(data)}
 
       <div>
         <label htmlFor="name">Name</label>
-        <input
-          id="name"
-          name="name"
-          value={data.name}
-          onChange={(event) => {
-            setData({ ...data, name: event.target.value });
-          }}
-        />
+        <input id="name" name="name" value={data.name} onChange={onChange} />
       </div>
 
       <div>
         <label htmlFor="image">Image</label>
-        <input
-          id="image"
-          name="image"
-          value={data.image}
-          onChange={(event) => {
-            setData({ ...data, image: event.target.value });
-          }}
-        />
+        <input id="image" name="image" value={data.image} onChange={onChange} />
       </div>
 
       <div>
@@ -61,9 +51,7 @@ function AddFoodForm({ onAddFood }) {
           id="calories"
           name="calories"
           value={data.calories}
-          onChange={(event) => {
-            setData({ ...data, calories: event.target.value });
-          }}
+          onChange={onChange}
         />
       </div>
 
@@ -75,9 +63,7 @@ function AddFoodForm({ onAddFood }) {
           id="servings"
           name="servings"
           value={data.servings}
-          onChange={(event) => {
-            setData({ ...data, servings: event.target.value });
-          }}
+          onChange={onChange}
         />
       </div>
 
